@@ -36,10 +36,9 @@
     "light-server": "^1.1.5",
     "riot": "^2.3.16",
     "riotjs-loader": "^3.0.0",
+    "stackable": "^1.4.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.1",
-    "webpack-dev-server": "^1.10.1",
-    "es6-promise": "^3.1.2",
-    "isomorphic-fetch": "^2.2.1"
+    "webpack-dev-server": "^1.10.1"
   }
 }

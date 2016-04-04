@@ -1,4 +1,4 @@
-import Stackable from '../stackable.js'
+//import Stackable from 'stackable'
 
 class BlogStore {
   constructor() {

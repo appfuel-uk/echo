@@ -26,6 +26,7 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       riot: 'riot',
+      stackable: 'stackable',
     }),
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
   ],
