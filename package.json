@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "dist": "webpack -p -d",
+    "viewdist": "light-server -s . -p 7000",
+    "lint": "eslint --ext .js,.es6,.html src/*"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.2",
+    "babel-eslint": "^5.0.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015-riot": "^1.0.3",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.2.0",
+    "eslint-config-airbnb": "^6.0.2",
+    "eslint-plugin-riot": "^0.1.4",
+    "light-server": "^1.1.5",
+    "riot": "^2.3.16",
+    "riotjs-loader": "^3.0.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.1",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
