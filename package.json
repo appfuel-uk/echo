@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/appfuel-uk/echo"
   },
-  "keywords": ['echo', 'blogging', 'blog'],
+  "keywords": ["echo", "blogging", "blog"],
   "author": "Parminder Klair <p.klair@scorchsoft.com>",
   "license": "MIT",
   "bugs": {
