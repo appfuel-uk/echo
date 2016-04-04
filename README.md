@@ -1,4 +1,4 @@
-# Echo Blogging System
+# echo Blogging System
 
 - Use webpack and ES6(babel) to build Riotjs app
 - Use Stackable.space as API to provide data

@@ -1,5 +1,19 @@
 {
-  "private": true,
+  "name": "echo",
+  "version": "0.1.0",
+  "description": "echo blogging system",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appfuel-uk/echo"
+  },
+  "keywords": ['echo', 'blogging', 'blog'],
+  "author": "Parminder Klair <p.klair@scorchsoft.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/appfuel-uk/echo/issues"
+  },
+  "homepage": "https://github.com/appfuel-uk/echo",
   "scripts": {
     "dev": "webpack-dev-server",
     "dist": "webpack -p -d",
@@ -21,8 +35,5 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.1",
     "webpack-dev-server": "^1.10.1"
-  },
-  "dependencies": {
-    "node-fetch": "^1.4.1"
   }
 }
