@@ -1,12 +1,10 @@
 import Stackable from '../stackable.js'
 
-const LOCALSTORAGE_KEY = 'echo-blog'
-
 class BlogStore {
   constructor() {
     riot.observable(this)
 
-    this.stackable = new Stackable('kX8JddwDJqdf');
+    this.stackable = new Stackable(STACK_ID);
 
     //this.initData()
     //todo use local storage later on
@@ -23,8 +21,8 @@ class BlogStore {
   }
 
   initData() {
-    this.stackable.getContainerItems('yuXN5CHkCpfqi8Pk9', (err, res) => {
-      console.log('stackable data', res);
+    this.stackable.getContainerItems(CONTAINER_ID, (err, res) => {
+      //console.log('stackable data', res);
       this._posts = res.data
       this.saveToStorage()
       this.trigger(riot.SE.POSTS_CHANGED, this._posts)
