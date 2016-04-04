@@ -12,7 +12,6 @@ import stores from '../stores'
 
   this.readData = () => {
     this._post = stores.blog.getPostById(opts.data)
-    this._total = stores.blog._posts.length
     this.update()
   }
 

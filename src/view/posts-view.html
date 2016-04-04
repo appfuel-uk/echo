@@ -1,5 +1,6 @@
 <posts-view>
   <postcell each={_posts} data={this}></postcell>
+  <pagination total={_total}></pagination>
 
   <script>
   this.mixin('controlMixin')
@@ -10,7 +11,8 @@
   })
 
   this.onControl(riot.SE.POSTS_CHANGED, posts => {
-    this._posts = posts
+    this._posts = posts.data
+    this._total = posts.total
     this.update()
   })
   </script>

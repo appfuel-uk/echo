@@ -1,0 +1,27 @@
+<pagination>
+  <div>
+    <a if={ _currentPage > 1 } href="#" onclick={previous}>Previous Post</a> |
+    <a if={ _currentPage * PAGE_LIMIT < opts.total } href="#" onclick={next}>Next Post</a>
+  </div>
+
+  <script>
+    var q = riot.route.query()
+    if (typeof q.page === 'undefined') {
+      q.page = 1
+    }
+
+    this._currentPage = parseInt(q.page)
+    this._previousPage = parseInt(q.page) - 1
+    this._nextPage = parseInt(q.page) + 1
+
+    this.previous = () => {
+      riot.route('?page=' + this._previousPage)
+      riot.control.trigger(riot.VE.RESET_DATA)
+    }
+
+    this.next = () => {
+      riot.route('?page=' + this._nextPage)
+      riot.control.trigger(riot.VE.RESET_DATA)
+    }
+  </script>
+</pagination>

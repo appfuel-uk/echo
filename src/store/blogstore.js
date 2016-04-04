@@ -12,18 +12,30 @@ class BlogStore {
     if (!json) {
       this.initData()
     } else {
-      this._posts = (json && JSON.parse(json)) || []
+      this._posts = (json && JSON.parse(json)) || {}
     }
   }
 
   getPostById(id) {
-    return this._posts.filter(post => post._id === id)[0]
+    return this._posts.data.filter(post => post._id === id)[0]
   }
 
   initData() {
-    this.stackable.getContainerItems(CONTAINER_ID, (err, res) => {
+    var query = {
+      '$limit': parseInt(PAGE_LIMIT),
+      '$skip': 0
+    }
+
+    var q = riot.route.query()
+    if (typeof q.page === 'undefined') {
+      q.page = 1
+    }
+
+    query['$skip'] = (parseInt(q.page) - 1) * query['$limit']
+
+    this.stackable.getContainerItems(CONTAINER_ID, query, (err, res) => {
       //console.log('stackable data', res);
-      this._posts = res.data
+      this._posts = res
       this.saveToStorage()
       this.trigger(riot.SE.POSTS_CHANGED, this._posts)
     });
