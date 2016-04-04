@@ -8,11 +8,8 @@ class BlogStore {
 
     this.stackable = new Stackable('kX8JddwDJqdf');
 
-
-    this.stackable.getContainerItems('yuXN5CHkCpfqi8Pk9', (err, res) => {
-      console.log(err, res.data);
-    });
-
+    //this.initData()
+    //todo use local storage later on
     const json = window.localStorage.getItem(LOCALSTORAGE_KEY)
     if (!json) {
       this.initData()
@@ -22,18 +19,16 @@ class BlogStore {
   }
 
   getPostById(id) {
-    return this._posts.filter(post => post.postId === id)[0]
+    return this._posts.filter(post => post._id === id)[0]
   }
 
   initData() {
-    const defaultPosts = [
-      { postId: 1, title: 'Best xbox games', content: 'Halo, GOW',
-        category: 'collection', likes: 10 },
-    ]
-
-
-    this._posts = defaultPosts
-    this.saveToStorage()
+    this.stackable.getContainerItems('yuXN5CHkCpfqi8Pk9', (err, res) => {
+      console.log('stackable data', res);
+      this._posts = res.data
+      this.saveToStorage()
+      this.trigger(riot.SE.POSTS_CHANGED, this._posts)
+    });
   }
 
   saveToStorage() {
@@ -49,16 +44,6 @@ instance.on(riot.VE.LOAD_POSTS, () => {
 
 instance.on(riot.VE.RESET_DATA, () => {
   instance.initData()
-  instance.trigger(riot.SE.POSTS_CHANGED, instance._posts)
-})
-
-instance.on(riot.VE.LIKE_POST, id => {
-  instance._posts.forEach(post => {
-    if (post.postId === id) {
-      post.likes = post.likes + 1
-    }
-  })
-  instance.saveToStorage()
   instance.trigger(riot.SE.POSTS_CHANGED, instance._posts)
 })
 

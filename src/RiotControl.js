@@ -21,7 +21,6 @@ riot.SE = {
 // view events
 riot.VE = {
   RESET_DATA: 've_reset_data',
-  LIKE_POST: 've_like_post',
   LOAD_POSTS: 've_load_posts',
 }
 

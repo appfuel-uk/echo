@@ -51,6 +51,8 @@
   riot.route(this.studyRoute)
 
   this.on('mount', () => {
+    //reset data on load //todo can be disabled
+    riot.control.trigger(riot.VE.RESET_DATA)
     riot.route.start(true)
   })
   </script>
