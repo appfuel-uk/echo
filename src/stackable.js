@@ -1,3 +1,6 @@
+require('es6-promise').polyfill();
+import 'isomorphic-fetch';
+
 class Stackable {
   constructor(token) {
     this._token = token;
@@ -14,16 +17,18 @@ class Stackable {
   _get(path, callback) {
     let endPoint = `${this._apiUrl}/${this._apiVersion}/${path}?token=${this._token}`;
 
-    $.ajax({
-        url: endPoint,
-        type: 'GET',
-        context: document.body,
-        success: function(response) {
-          callback(false, response);
-        },
-        error: function(err) {
-          callback(err, false);
+    fetch(endPoint)
+      .then(function(response) {
+        if (response.status >= 400) {
+          var err = {
+            'message': 'There was an error with this request.'
+          };
+          return callback(err, false);
         }
+        return response.json();
+      })
+      .then(function(response) {
+        callback(false, response);
       });
   }
 }

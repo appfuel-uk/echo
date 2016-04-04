@@ -2,8 +2,6 @@ import stores from '../stores'
 <detail-view>
   <h2>{_post.data.title}</h2>
   <rawhtml content={_post.data.content} />
-  <a if={ opts.data > 1 } href="#detail/{ opts.data - 1 }">Previous Post</a> |
-  <a if={ opts.data < _total } href="#detail/{ opts.data - -1 }">Next Post</a>
 
   <script>
   this.mixin('controlMixin')

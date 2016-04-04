@@ -5,7 +5,7 @@
 
 This is tiny blogging system written ES6 with Riotjs, and use webpack to build the bundled target js to run in the browser environment.
 
-Online demo: here
+Online demo: [http://appfuel-uk.github.io/echo/](http://appfuel-uk.github.io/echo/)
 
 ## Development
 
